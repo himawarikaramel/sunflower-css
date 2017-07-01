@@ -1,0 +1,108 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+[class^="ui-"] {
+  box-sizing: border-box;
+  cursor: default;
+  overflow: hidden;
+  position: relative;
+}
+
+%flex {
+  display: flex;
+}
+
+.ui-row {
+  @extend %flex;
+  align-items: stretch;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  > * {
+    flex-grow: 1;
+    position: relative;
+  }
+  > .expand {
+    flex-grow: 10000;
+  }
+}
+
+.ui-column {
+  @extend .ui-row;
+  flex-direction: column;
+}
+
+.ui-flow {
+  @extend .ui-row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.ui-container {
+  @extend .fill;
+  display: block;
+}
+
+.ui-rectangle {
+  display: block;
+}
+
+.ui-text {
+  display: block;
+  user-select: none;
+}
+
+.ui-mousearea {
+  display: block;
+}
+
+.ui-stack {
+  display: block;
+  > * {
+    @extend .fill;
+    display: none;
+    position: relative;
+  }
+  > %flex.active {
+    display: flex;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+.fill {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.fit-content {
+  display: inline-block;
+  height: auto;
+  width: auto;
+}
+
+.center-v {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.center-h {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.center-in {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
